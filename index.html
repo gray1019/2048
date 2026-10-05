@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <title>2048 · Dark</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="wrap">
+
+    <header class="top">
+      <h1 class="logo">2048</h1>
+      <div class="scores">
+        <div class="score-box">
+          <span class="label">Score</span>
+          <span id="score" class="value">0</span>
+          <span id="score-add" class="score-add"></span>
+        </div>
+        <div class="score-box">
+          <span class="label">Best</span>
+          <span id="best" class="value">0</span>
+        </div>
+      </div>
+    </header>
+
+    <div class="bar">
+      <p class="hint">Join the tiles, reach <b>2048</b>!</p>
+      <div class="bar-btns">
+        <button id="settings-btn" class="btn icon" title="Settings">⚙</button>
+        <button id="new-game" class="btn">New Game</button>
+      </div>
+    </div>
+
+    <div class="board" id="board">
+      <div id="cells" class="cells"></div>
+      <div id="tiles" class="tiles"></div>
+
+      <div id="overlay" class="overlay">
+        <h2 id="overlay-title"></h2>
+        <p id="overlay-sub"></p>
+        <div class="overlay-btns">
+          <button id="btn-continue" class="btn ghost">Keep Going</button>
+          <button id="btn-restart" class="btn">New Game</button>
+        </div>
+      </div>
+    </div>
+
+    <footer class="foot">← ↑ ↓ → &nbsp;or&nbsp; WASD &nbsp;·&nbsp; swipe on touch</footer>
+
+  </main>
+
+  <!-- settings modal -->
+  <div id="settings" class="modal">
+    <div class="modal-card">
+      <h2>⚙ Settings</h2>
+
+      <div class="setting-row">
+        <span>Fast animations</span>
+        <label class="switch">
+          <input type="checkbox" id="fast-anim">
+          <span class="slider"></span>
+        </label>
+      </div>
+
+      <div class="setting-row">
+        <span>Best score: <b id="settings-best">0</b></span>
+        <button id="reset-best" class="btn small danger">Reset</button>
+      </div>
+
+      <div class="console-wrap">
+        <div class="console-head">› terminal</div>
+        <div id="console-out" class="console-out"><div class="cline">› ready. type a command…</div></div>
+        <input id="console-in" class="console-in" type="text"
+               placeholder="type a command…" autocomplete="off" spellcheck="false">
+      </div>
+
+      <div id="cheat-menu" class="cheat-menu hidden">
+        <div class="cheat-title">🛠 CHEAT MENU — unlocked</div>
+        <div class="cheat-grid">
+          <button class="cheat" id="cheat-god">🛡 God Mode<br><small>never game over</small></button>
+          <button class="cheat" id="cheat-2048">✨ Spawn 2048</button>
+          <button class="cheat" id="cheat-double">✖️ Double All</button>
+          <button class="cheat" id="cheat-score">💰 +5000 pts</button>
+          <button class="cheat" id="cheat-nuke">💣 Nuke Smallest</button>
+        </div>
+      </div>
+
+      <button id="settings-close" class="btn small close">Close</button>
+    </div>
+  </div>
+
+  <div id="toast" class="toast"></div>
+
+  <script src="app.js"></script>
+</body>
+</html>
